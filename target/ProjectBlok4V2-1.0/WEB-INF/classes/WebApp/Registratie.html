@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        form {text-align: center;}
+        input{text-align:center;}
+    </style>
+    <meta charset="UTF-8" />
+    <title>Registratie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body bgcolor="#87cefa">
+<h1>Registratie</h1>
+<p>
+    <a href="Overzicht.html">
+        <input class="button1" type="button" value="Overzicht"/>
+    </a>
+    <a href="InlogScherm.html">
+        <input class="button2" type="button" value="Log uit"/>
+    </a>
+</p>
+
+<section id ="AB">
+    <p id="datetime1">Today: <span id="datetime"></span></p><script>var dt = new Date();
+document.getElementById("datetime").innerHTML=dt.toDateString();</script>
+    <button class="Les" type="button">Les</button>
+    <button class="Opdracht" type="button">Opdracht</button>
+
+<!--    <table id="table" style="width:25%">-->
+<!--        <tr>-->
+<!--            <th>Maandag</th>-->
+<!--            <th>Dinsdag</th>-->
+<!--            <th>Woensdag</th>-->
+<!--            <th>Donderdag</th>-->
+<!--            <th>Vrijdag</th>-->
+<!--            <th>Zaterdag</th>-->
+<!--            <th>Zondag</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Test</th>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+
+    <section id="ABC">
+        <form>
+            <br>
+            <label for="lfname">Naam activiteit:</label><br>
+            <input id="lfname" name="fname" type="text" />
+
+            <p class="gap"></p>
+            <label for="ta">Omschrijving activiteit:</label><br>
+            <textarea id="ta" name="ta" rows="4" cols="50"></textarea>
+
+            <p class="gap"></p>
+            <label for="name">Tijd activiteit:</label><br>
+            <input id="name" name="fname" type="text" placeholder="00:00"/>
+            <p class="gap"></p>
+
+            <button id="add" type="button">Sla op</button>
+            <input class="reset" type = "reset" value = "Reset">
+
+            <script>document.getElementById("add").onclick  = function (elementId) {
+
+                var node = document.createElement("Li");
+                var text = document.getElementById("lfname").value;
+                var textnode=document.createTextNode(text + " ");
+
+                var text1 = document.getElementById("ta").value;
+                var textnode1=document.createTextNode(text1 + " ");
+
+                var text2 = document.getElementById("name").value;
+                var textnode2=document.createTextNode(text2 +" ");
+                node.appendChild(textnode);
+                node.appendChild(textnode1)
+                node.appendChild(textnode2);
+                document.getElementById("list").appendChild(node);
+
+            }
+            </script>
+            <ul id='list'></ul>
+        </form>
+    </section>
+
+</section>
+
+
+</body>
+</html>

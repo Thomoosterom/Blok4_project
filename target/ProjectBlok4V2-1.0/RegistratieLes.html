@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        form {text-align: center;}
+        input{text-align:center;}
+    </style>
+    <meta charset="UTF-8" />
+    <title>Registratie</title>
+    <link rel="stylesheet" href="stylesLes.css">
+    <script>
+        function addItem(){
+            var ul = document.getElementById("dynamic-list");
+            // var candidate2 = document.getElementById("eindtijd");
+            var candidate1 = document.getElementById("begintijd");
+            var candidate = document.getElementById("lfname");
+            var li = document.createElement("li");
+            li.setAttribute('id',candidate.value);
+            li.setAttribute('id',candidate1.value);
+            // li.setAttribute('id',candidate2.value);
+            li.appendChild(document.createTextNode(candidate.value + '\u00A0' + candidate1.value + '\u00A0' + "uur")); //+ " - " + candidate2.value));
+            ul.appendChild(li);
+        }
+    </script>
+</head>
+
+<body bgcolor="#87cefa">
+<h1>Registratie voor Lessen</h1>
+<p>
+    <a href="Overzicht.html">
+        <input class="button1" type="button" value="Overzicht"/>
+    </a>
+    <a href="InlogScherm.html">
+        <input class="button2" type="button" value="Log uit"/>
+    </a>
+</p>
+
+<section id ="AB">
+    <p id="datetime1">Today: <span id="datetime"></span></p><script>var dt = new Date();
+document.getElementById("datetime").innerHTML=dt.toDateString();</script>
+
+    <a href="RegistratieActiviteit.html">
+        <input class="Les" type="button" value="Activiteit"/>
+    </a>
+    <a href="RegistratieOpdracht.html">
+        <input class="Opdracht" type="button" value="Opdracht"/>
+    </a>
+
+    <table id="table" style="width:25%">
+        <tr>
+            <th>Maandag</th>
+            <th>Dinsdag</th>
+            <th>Woensdag</th>
+            <th>Donderdag</th>
+            <th>Vrijdag</th>
+            <th>Zaterdag</th>
+            <th>Zondag</th>
+        </tr>
+    </table>
+
+
+    <section id="ABC">
+        <form>
+            <br>
+            <p class="gap"></p>
+            <label for="lfname">Naam les:</label><br>
+            <input id="lfname" name="fname" type="text" />
+
+            <p class="gap"></p>
+            <label for="begintijd">Tijd les in uren:</label><br>
+            <input id="begintijd" name="fname" type="text" placeholder="bv : 2.5"/>
+            <p class="gap"></p>
+<!--            <label for="eindtijd">Eindtijd les:</label><br>-->
+<!--            <input id="eindtijd" name="fname" type="text" placeholder="00:00"/>-->
+<!--            <p class="gap"></p>-->
+            <button id="add" onclick="addItem()" type="button">Sla op</button>
+            <input class="reset" type = "reset" value = "Reset">
+
+        </form>
+    </section>
+    <ul id="dynamic-list"></ul>
+</section>
+
+
+</body>
+</html>
