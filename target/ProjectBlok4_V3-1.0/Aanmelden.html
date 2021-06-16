@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+        /*form {text-align: center;}*/
+        /*input{text-align:center;}*/
+    </style>
+    <meta charset="UTF-8">
+    <title>Aanmelden</title>
+    <link rel="stylesheet" href="stylesAanmelden.css">
+</head>
+<body>
+<h1>Registratie</h1>
+<section id="ABC">
+    <form id="RegisterForm">
+        <br>
+        <label for="naam">Naam:</label>
+        <input id="naam" name="naam" type="text"/><br>
+        <p class="gap"></p>
+
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="text"/><br>
+        <p class="gap"></p>
+
+        <label for="gebruikersnaam">Gebruikersnaam:</label>
+        <input id="gebruikersnaam" name="gebruikersnaam" type="text"/><br>
+        <p class="gap"></p>
+
+        <label for="wachtwoord">Wachtwoord:</label>
+        <input id="wachtwoord" name="wachtwoord" type="text"/><br>
+        <p class="gap"></p>
+
+<!--        <label for="klas">Klas:</label>-->
+<!--        <input id="klas" name="klas" type="text"/><br>-->
+<!--        <p class="gap"></p>-->
+        <p class="gap"></p>
+        <p class="gap"></p>
+        <p>
+            <input class="button1" id="register" type="button" value="Registreer"/>
+        </p>
+        <p>
+            <a href="index.html">
+                <input class="button2" type="button" value="Cancel"/>
+            </a>
+        </p>
+        <input class="reset" type="reset" value="Reset">
+    </form>
+</section>
+
+<script>
+    document.querySelector("#register").addEventListener("click", function () {
+        var formData = new FormData(document.querySelector("#RegisterForm"))
+        var encData = new URLSearchParams(formData.entries());
+
+        fetch("restservices/Aanmelden", {method: 'POST', body: encData})
+            .then(function (response) {
+                if (response.status === 200) {
+
+                    window.open("RegistratieActiviteit.html");
+                    return response.json();
+
+                } else throw "verkeerde wachtwoord/gebruikersnaam";
+            })
+            .then(myJson => window.sessionStorage.setItem("myJWT", myJson.JWT))
+            .catch(error => console.log(error));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        form {text-align: center;}
+        input{text-align:center;}
+    </style>
+    <meta charset="UTF-8" />
+    <title>Registratie voor Opdrachten</title>
+    <link rel="stylesheet" href="stylesOpdrachten.css">
+    <script>
+        function addItem(){
+            var ul = document.getElementById("dynamic-list");
+            var candidate3 = document.getElementById("ta");
+            // var candidate2 = document.getElementById("eindtijd");
+            var candidate1 = document.getElementById("begintijd");
+            var candidate = document.getElementById("lfname");
+            var li = document.createElement("li");
+            li.setAttribute('id',candidate.value);
+            li.setAttribute('id',candidate1.value)
+            // li.setAttribute('id',candidate2.value);
+            li.setAttribute('id',candidate3.value);
+            li.appendChild(document.createTextNode(candidate.value + '\u00A0' + candidate3.value + '\u00A0' + candidate1.value + '\u00A0' + "uur")); //+ " - " + candidate2.value));
+            ul.appendChild(li);
+        }
+    </script>
+</head>
+
+<body bgcolor="#87cefa">
+<h1>Registratie voor Opdrachten</h1>
+<p>
+    <a href="Overzicht.html">
+        <input class="button1" type="button" value="Overzicht"/>
+    </a>
+    <a href="index.html">
+        <input class="button2" type="button" value="Log uit"/>
+    </a>
+</p>
+
+<section id ="AB">
+    <p id="datetime1">Today: <span id="datetime"></span></p><script>var dt = new Date();
+document.getElementById("datetime").innerHTML=dt.toDateString();</script>
+
+    <a href="RegistratieLes.html">
+        <input class="Les" type="button" value="Les"/>
+    </a>
+    <a href="RegistratieActiviteit.html">
+        <input class="Opdracht" type="button" value="Activiteit"/>
+    </a>
+
+    <table id="table" style="width:25%">
+        <tr>
+            <th>Maandag</th>
+            <th>Dinsdag</th>
+            <th>Woensdag</th>
+            <th>Donderdag</th>
+            <th>Vrijdag</th>
+            <th>Zaterdag</th>
+            <th>Zondag</th>
+        </tr>
+    </table>
+
+
+    <section id="ABC">
+        <form>
+            <br>
+            <label for="lfname">Naam opdracht:</label><br>
+            <input id="lfname" name="fname" type="text" />
+
+            <p class="gap"></p>
+            <label for="ta">Omschrijving opdracht:</label><br>
+            <textarea id="ta" name="ta" rows="4" cols="50"></textarea>
+
+            <p class="gap"></p>
+            <label for="begintijd">Tijd opdracht in uren:</label><br>
+            <input id="begintijd" name="fname" type="text" placeholder="bv : 2.5"/>
+            <p class="gap"></p>
+<!--            <label for="eindtijd">Eindtijd opdracht:</label><br>-->
+<!--            <input id="eindtijd" name="fname" type="text" placeholder="00:00"/>-->
+<!--            <p class="gap"></p>-->
+            <button id="add" onclick="addItem()" type="button">Sla op</button>
+            <input class="reset" type = "reset" value = "Reset">
+
+        </form>
+    </section>
+    <ul id="dynamic-list"></ul>
+</section>
+
+
+</body>
+</html>

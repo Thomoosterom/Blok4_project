@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <!--    <meta http-equiv="refresh" content="30;url=RegistratieActiviteit.html">-->
+
+    <link rel="stylesheet" href="stylesInlog.css">
+    <title>Inlog applicatie</title>
+</head>
+<body>
+
+
+<h1>Schooluren Applicatie</h1>
+<h2>Welkom</h2>
+
+<section id="ABC" style="text-align: center">
+    <form id="loginForm" >
+
+        <p class="gap"></p>
+        <label for="gebruikersnaam">Gebruikersnaam:</label>
+        <input id="gebruikersnaam" type="text" name="gebruikersnaam"/> <br>
+
+        <p class="gap"></p>
+        <label for="wachtwoord">Wachtwoord:</label>
+        <input id="wachtwoord" type="password" name="wachtwoord"/><br>
+
+        <p class="gap"></p>
+        <input type="button" value="login" id="login"/>
+        <p>
+            <a href="Aanmelden.html">
+                <input class="button2" type="button" value="Aanmelden" />
+            </a>
+        </p>
+    </form>
+</section>
+
+
+
+
+<!--<script>-->
+<!--    document.addEventListener("load", event=> {-->
+<!--        document.querySelector("#login").addEventListener("click", login);-->
+<!--    });-->
+<!--    async function login() {-->
+<!--        console.log("login");-->
+<!--        var formData = new FormData(document.querySelector("#loginForm"))-->
+<!--        var encData = new URLSearchParams(formData.entries());-->
+
+<!--        let response = await fetch("RegistratieActiviteit.html", { method:'POST', body:encData})-->
+<!--        if(response.status === 200) {-->
+<!--            let myJson = await response.json();-->
+<!--            window.sessionStorage.setItem("myJWT", myJson.JWT);-->
+<!--            window.open("RegistratieActiviteit.html");-->
+
+<!--        } else throw "verkeerder wachtwoord/gebruikersnaam";-->
+<!--    }-->
+<!--</script>-->
+
+<script>
+    document.querySelector("#login").addEventListener("click", function () {
+        var formData = new FormData(document.querySelector("#loginForm"))
+        var encData = new URLSearchParams(formData.entries());
+
+        fetch("restservices/index", {method :'POST', body:encData})
+            .then(function(response) {
+                if (response.status === 200) {
+                    window.open("RegistratieActiviteit.html");
+                    return response.json();
+
+                }
+
+                else throw "verkeerde wachtwoord/gebruikersnaam";
+            })
+            .then(myJson => window.sessionStorage.setItem("myJWT", myJson.JWT))
+            .catch(error => console.log(error));
+    });
+</script>
+
+</body>
+</html>
