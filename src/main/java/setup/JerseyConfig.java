@@ -4,10 +4,10 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 import javax.ws.rs.ApplicationPath;
 
-@ApplicationPath("Blok4")
+@ApplicationPath("restservices")
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
-        packages("nl.hu.blok4.v2.services");
+        packages("nl.hu.project4.v3.services");
     }
 }
 

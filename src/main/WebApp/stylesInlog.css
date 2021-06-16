@@ -1,0 +1,48 @@
+
+
+h1 {
+    text-align: center;
+    color: darkred;
+}
+h2 {
+    text-align: center;
+    color:darkred;
+}
+.inlog {
+    text-align:center;
+    position: relative;
+    left:735px;
+
+}
+.aanmelden {
+    text-align:center;
+    position: relative;
+    left: 720px;
+}
+#gebruikersnaam {
+    position: relative;
+    left: 13px;
+    right: 0;
+}
+#wachtwoord {
+    position: relative;
+    left: 25px;
+    right: 0;
+}
+
+.gap {
+    width:50%;
+    height:5px;
+}
+#ABC {
+    border-style: solid;
+    border-color: black;
+    font-size: medium;
+    font-style:italic;
+    background-color: lightgray;
+    position : absolute;
+    top:100px;
+    right:500px;
+    left:50px;
+    bottom:50px;
+}
